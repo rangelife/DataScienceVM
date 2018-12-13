@@ -8,8 +8,14 @@ mkdir -p notebooks
 chown 1003:1003 notebooks
 cd notebooks
 
-mkdir -p notebooks/Refinitiv
+mkdir -p Refinitiv
 cd Refinitiv
+
+
+export DSA_PERMID=1-5064690523
+export DSA_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJhcHAtZGF0YXNjaWVuY2VhY2NlbGVyYXRvci1mcl9ub25wcm9kX2Rldi1pcmVsYW5kLWRldiIsImV4cCI6MTU0NDgwMDM2MCwianRpIjoiNDU0NzAyZTctZWEwNC00YzMwLTkzZjktMzYzZjQ5N2RjNjlkIiwiaWF0IjoxNTQ0NzEzOTYwLCJpc3MiOiJhcHAtZGF0YXNjaWVuY2VhY2NlbGVyYXRvci1mcl9ub25wcm9kX2Rldi1pcmVsYW5kLWRldiIsIm5iZiI6MTU0NDcxMzk2MCwic3ViIjoiZTk2ZjFiZTctYjAyMC01NzI1LWI1NGYtYWJjMTNhNzU0MzU1IiwiZHN0IjoiYXBwLWRhdGFzY2llbmNlYWNjZWxlcmF0b3ItZnJfbm9ucHJvZF9kZXYtaXJlbGFuZC1kZXYiLCJzdWJfZW1haWwiOiJyb2IubHVuZGllaGlsbEB0aG9tc29ucmV1dGVycy5jb20iLCJzdWJfbmFtZSI6IlJvYmVydCBKb2huIEx1bmRpZSBIaWxsIiwic3ViX3Byb3ZpZGVyLW5hbWUiOiJ0cmlkIiwic3ViX3Byb3ZpZGVyLWlkIjoiOTAwNjNjNDAtYjc4NS00NDAxLWFjNjYtYjZlMTAxYmE4ODQ5In0.uMiX92SQId5KzyDtRb-aNErs5YSjBzwKDTno7fe3yY8
+export DSA_ENV=dev
+
 
 curl -v -O 'https://dsa-'$DSA_ENV'-ecs-api.fr-nonprod.aws.thomsonreuters.com/v1/examples/'$DSA_PERMID'/data-science-accelerator-examples.zip' \
     -H 'Accept: application/json, text/plain, */*' \
@@ -29,9 +35,14 @@ fi
 
 unzip data-science-accelerator-examples.zip
 
-mv data-science-accelerator-examples/notebooks .
+mv data-science-accelerator-examples/notebooks/* .
 
 rm -rf data-science-accelerator-examples.zip data-science-accelerator-examples 
 
 cd ..
 chown -R 1003:1003 Refinitiv
+
+
+
+
+
